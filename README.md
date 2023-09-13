@@ -1,4 +1,7 @@
-# my notes
+# My notes
+
+### Database and Spring Data JPA
+![img](/statics/images/databases_and_spring_data_jpa_overview.png "overview")
 
 1. How to create database (PostgreSQL with docker)
 ```text
