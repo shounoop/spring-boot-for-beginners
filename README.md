@@ -1,7 +1,10 @@
 # My notes
 
 ### Database and Spring Data JPA (Java Persistence API)
-![img](/statics/images/databases_and_spring_data_jpa_overview.png "overview")
+![img](/statics/images/databases_and_spring_data_jpa_overview.png "Overview")
+
+### CRUD API
+![img](/statics/images/crud_api.png "CRUD API")
 
 1. How to create database (PostgreSQL with docker)
 ```text

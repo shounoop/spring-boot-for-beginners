@@ -2,28 +2,45 @@ package com.amigoscode;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @SpringBootApplication
 @RestController
+@RequestMapping("api/v1/customers")
 public class Main {
+    private final CustomerRepository customerRepository;
+
+    public Main(CustomerRepository customerRepository) {
+        this.customerRepository = customerRepository;
+    }
+
     public static void main(String[] args) {
         SpringApplication.run(Main.class, args);
     }
 
-    @GetMapping("/greet")
-    public GreetResponse greet() {
-        GreetResponse response = new GreetResponse("Hello", List.of("JS", "Java"), new Person("Shounoop", 22, 99_000));
-
-        return response;
+    @GetMapping
+    public List<Customer> getCustomers() {
+        return this.customerRepository.findAll();
     }
 
-    record Person(String name, int age, double savings) {
+    @PostMapping
+    public void addCustomer(@RequestBody NewCustomerRequest request) {
+        Customer customer = new Customer();
+        customer.setName(request.name());
+        customer.setEmail(request.email());
+        customer.setAge(request.age());
+
+        this.customerRepository.save(customer);
     }
 
-    record GreetResponse(String greet, List<String> favProgrammingLanguages, Person person) {
+    @DeleteMapping("{customerId}")
+    public void deleteCustomer(@PathVariable("customerId") Integer id) {
+        this.customerRepository.deleteById(id);
+    }
+
+    record NewCustomerRequest(String name, String email, Integer age) {
+
     }
 }
