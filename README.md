@@ -1,12 +1,19 @@
 # My notes
 
-### Database and Spring Data JPA (Java Persistence API)
+### 1. Database and Spring Data JPA (Java Persistence API)
+
 ![img](/statics/images/databases_and_spring_data_jpa_overview.png "Overview")
 
-### CRUD API
+### 2. CRUD API
+
 ![img](/statics/images/crud_api.png "CRUD API")
 
-1. How to create database (PostgreSQL with docker)
+### 3. How to structure your Backend
+
+![img](/statics/images/structure_your_backend.png "Backend Structure")
+
+### 4. How to create database (PostgreSQL with docker)
+
 ```text
 - In terminal, run following commands:
     1. docker exec -it postgres bash
