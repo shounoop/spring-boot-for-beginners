@@ -35,6 +35,11 @@ public class Main {
         this.customerRepository.save(customer);
     }
 
+    @DeleteMapping("{customerId}")
+    public void deleteCustomer(@PathVariable("customerId") Integer id) {
+        this.customerRepository.deleteById(id);
+    }
+
     record NewCustomerRequest(String name, String email, Integer age) {
 
     }
